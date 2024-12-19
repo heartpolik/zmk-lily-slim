@@ -44,6 +44,15 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        cfg_layer {
+            bindings = <&sl 3>;
+            key-positions = <51 56 0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -62,7 +71,7 @@
         lower_layer {
             bindings = <
 &kp GRAVE  &kp LC(LA(D))               &kp LA(LC(E))     &kp LA(LC(F))           &kp LA(LC(T))      &kp LA(LC(G))                            &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp LC(K_MUTE)
-&trans     &kp LA(LC(C))               &kp LA(LC(U))     &kp LA(LC(UP_ARROW))    &kp LA(LC(I))      &kp LA(LC(MINUS))                        &kp PIPE        &mkp MB1          &mmv MOVE_UP    &mkp MB2           &none            &to 3
+&trans     &kp LA(LC(C))               &kp LA(LC(U))     &kp LA(LC(UP_ARROW))    &kp LA(LC(I))      &kp LA(LC(MINUS))                        &kp PIPE        &mkp MB1          &mmv MOVE_UP    &mkp MB2           &none            &none
 &trans     &kp LA(LC(LG(RIGHT)))       &kp LA(LC(LEFT))  &kp LA(LC(ENTER))       &kp LA(LC(RIGHT))  &kp LA(LC(EQUAL))                        &kp CARET       &mmv MOVE_LEFT    &mmv MOVE_DOWN  &mmv MOVE_RIGHT    &none            &none
 &trans     &kp LA(LC(LG(LEFT_ARROW)))  &kp LA(LC(J))     &kp LA(LC(DOWN_ARROW))  &kp LA(LC(K))      &kp LA(LC(BACKSPACE))  &trans    &trans  &none           &none             &none           &none              &none            &trans
                                                          &trans                  &to 0              &trans                 &trans    &trans  &kp DELETE      &to 2             &trans
@@ -81,11 +90,11 @@
 
         cfg_layer {
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                  &none  &none  &none  &none  &none  &bt BT_CLR_ALL
-&none       &none             &none              &none              &none         &none                         &none  &none  &none  &none  &none  &none
-&none       &none             &none              &none              &none         &none                         &none  &none  &none  &none  &none  &none
-&none       &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &none         &none         &none    &none  &none  &none  &none  &none  &none  &none
-                                                 &none              &to 0         &none         &studio_unlock    &none  &none  &to 0  &none
+&bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                           &none  &none  &none  &none  &none  &bt BT_CLR_ALL
+&none       &none             &none              &none              &none         &none                                  &none  &none  &none  &none  &none  &none
+&none       &none             &none              &none              &none         &none                                  &none  &none  &none  &none  &none  &none
+&none       &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &none         &none         &none             &none  &none  &none  &none  &none  &none  &none
+                                                 &none              &none         &none         &studio_unlock    &none  &none  &none  &none
             >;
         };
     };
