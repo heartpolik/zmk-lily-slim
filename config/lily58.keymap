@@ -1,0 +1,92 @@
+/*
+ * Copyright (c) 2022 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#define ZMK_BEHAVIORS_OMIT_KT
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
+
+ {
+    behaviors {
+        bracket_btn: bracket_btn {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BRACKET_BTN";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+        };
+
+        space_ret_btn: space_ret_btn {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SPACE_RET_BTN";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp RET>;
+        };
+
+        grv_tild_btn: grv_tild_btn {
+            compatible = "zmk,behavior-tap-dance";
+            label = "GRV_TILD_BTN";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE>, <&kp TILDE>;
+        };
+
+        comment_line: comment_line {
+            compatible = "zmk,behavior-tap-dance";
+            label = "COMMENT_LINE";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>, <&kp LG(SLASH)>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        // GRAVE
+
+        default_layer {
+            bindings = <
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4  &kp N5                                    &kp N6    &kp N7  &kp N8     &kp N9   &kp N0         &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp E     &kp R   &kp T                                     &kp Y     &kp U   &kp I      &kp O    &kp P          &kp EQUAL
+&kp LSHFT  &kp A   &kp S   &kp D     &kp F   &kp G                                     &kp H     &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V   &kp B     &bracket_btn    &kp RBKT        &kp N     &kp M   &kp COMMA  &kp DOT  &comment_line  &kp RSHFT
+                           &kp LALT  &mo 1   &kp LGUI  &kp SPACE       &space_ret_btn  &kp BSPC  &mo 2   &kp RET
+            >;
+        };
+
+        lower_layer {
+            bindings = <
+&kp GRAVE  &kp LC(LA(D))               &kp LA(LC(E))     &kp LA(LC(F))           &kp LA(LC(T))      &kp LA(LC(G))                            &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp LC(K_MUTE)
+&trans     &kp LA(LC(C))               &kp LA(LC(U))     &kp LA(LC(UP_ARROW))    &kp LA(LC(I))      &kp LA(LC(MINUS))                        &kp PIPE        &mkp MB1          &mmv MOVE_UP    &mkp MB2           &none            &to 3
+&trans     &kp LA(LC(LG(RIGHT)))       &kp LA(LC(LEFT))  &kp LA(LC(ENTER))       &kp LA(LC(RIGHT))  &kp LA(LC(EQUAL))                        &kp CARET       &mmv MOVE_LEFT    &mmv MOVE_DOWN  &mmv MOVE_RIGHT    &none            &none
+&trans     &kp LA(LC(LG(LEFT_ARROW)))  &kp LA(LC(J))     &kp LA(LC(DOWN_ARROW))  &kp LA(LC(K))      &kp LA(LC(BACKSPACE))  &trans    &trans  &none           &none             &none           &none              &none            &trans
+                                                         &trans                  &to 0              &trans                 &trans    &trans  &kp DELETE      &to 2             &trans
+            >;
+        };
+
+        raise_layer {
+            bindings = <
+&kp TILDE  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6     &kp F7    &kp F8        &kp F9         &kp F10  &kp LG(LS(NUMBER_4))
+&trans     &none   &none   &none   &none   &none                       &kp PG_UP  &kp HOME  &kp UP_ARROW  &kp END        &none    &kp LG(LS(N5))
+&trans     &none   &none   &none   &none   &none                       &kp PG_DN  &kp LEFT  &kp DOWN      &kp RIGHT      &none    &kp LG(LS(NUMBER_3))
+&trans     &none   &none   &none   &none   &none   &trans     &trans   &none      &none     &kp SLASH     &kp BACKSLASH  &none    &none
+                           &trans  &to 1   &trans  &kp F11    &kp F12  &trans     &to 0     &trans
+            >;
+        };
+
+        cfg_layer {
+            bindings = <
+&bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                  &none  &none  &none  &none  &none  &bt BT_CLR_ALL
+&none       &none             &none              &none              &none         &none                         &none  &none  &none  &none  &none  &none
+&none       &none             &none              &none              &none         &none                         &none  &none  &none  &none  &none  &none
+&none       &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &none         &none         &none    &none  &none  &none  &none  &none  &none  &none
+                                                 &none              &to 0         &none         &studio_unlock    &none  &none  &to 0  &none
+            >;
+        };
+    };
+};
