@@ -70,7 +70,7 @@
         };
 
         lower {
-            display-name = "Lo";
+            display-name = " Lo ";
             bindings = <
 &kp GRAVE  &kp LC(LA(D))               &kp LA(LC(E))     &kp LA(LC(F))           &kp LA(LC(T))      &kp LA(LC(G))                            &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp LC(K_MUTE)
 &trans     &kp LA(LC(C))               &kp LA(LC(U))     &kp LA(LC(UP_ARROW))    &kp LA(LC(I))      &kp LA(LC(MINUS))                        &kp PIPE        &mkp MB1          &mmv MOVE_UP    &mkp MB2           &none            &none
@@ -81,7 +81,7 @@
         };
 
         upper {
-            display-name = "Hi";
+            display-name = " Up ";
             bindings = <
 &kp TILDE  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6     &kp F7    &kp F8        &kp F9         &kp F10  &kp LG(LS(NUMBER_4))
 &trans     &none   &none   &none   &none   &none                       &kp PG_UP  &kp HOME  &kp UP_ARROW  &kp END        &none    &kp LG(LS(N5))
@@ -92,7 +92,7 @@
         };
 
         config {
-            display-name = "Cfg";
+            display-name = "Conf";
             bindings = <
 &bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                           &none  &none  &none  &none  &none  &bt BT_CLR_ALL
 &none       &none             &none              &none              &none         &none                                  &none  &none  &none  &none  &none  &none
