@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -59,7 +60,12 @@
 
         power_togl {
             bindings = <&ext_power EP_TOG>;
-            key-positions = <0 11>;
+            key-positions = <0 11 1 2 3 4 5 6 7 8 9 10>;
+        };
+
+        ou_tog {
+            bindings = <&out OUT_TOG>;
+            key-positions = <42 43>;
         };
     };
 
