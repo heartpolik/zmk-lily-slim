@@ -48,8 +48,13 @@
         compatible = "zmk,combos";
 
         cfg_layer {
-            bindings = <&sl 3>;
+            bindings = <&tog 3>;
             key-positions = <51 56 0>;
+        };
+
+        softOff {
+            bindings = <&soft_off>;
+            key-positions = <0 1 2 50>;
         };
     };
 
